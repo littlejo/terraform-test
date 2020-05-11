@@ -9,7 +9,6 @@ data "aws_ami" "app_ami" {
   }
 }
 
-
 resource "aws_instance" "example" {
   ami = data.aws_ami.app_ami.id
   count = terraform.workspace == "default" ? 1 : 2
